@@ -98,6 +98,8 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
 # Make the library
 add_library(clipboard ${HEADERS} ${SOURCE})
+set_property(TARGET clipboard PROPERTY POSITION_INDEPENDENT_CODE ON)
+
 target_link_libraries(clipboard LINK_PRIVATE ${LIBCLIPBOARD_PRIVATE_LIBS})
 if (LIBCLIPBOARD_ADD_SOVERSION)
     # Not by default because my file system doesn't support symlinks
